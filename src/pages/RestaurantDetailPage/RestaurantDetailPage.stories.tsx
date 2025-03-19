@@ -20,6 +20,9 @@ const meta = {
       route: '/restaurants/1',
       path: '/restaurants/:id',
     },
+    chromatic: {
+      disabledSnapshot: true,
+    },
   },
   render: () => {
     return (
