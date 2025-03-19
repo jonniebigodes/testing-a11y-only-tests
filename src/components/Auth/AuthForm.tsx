@@ -185,7 +185,9 @@ export const LoginForm: React.FC<{}> = () => {
           />
         </InputWrapper>
       </InputWithTooltip>
-      <SubmitButton type="submit">Login</SubmitButton>
+      <SubmitButton type="submit" role="contentinfo">
+        Login
+      </SubmitButton>
       <ErrorMessage visible={true} id="login-status" aria-label="login-status">
         Invalid email or password. Check the email and password requirements and try again.
       </ErrorMessage>
