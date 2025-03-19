@@ -148,7 +148,9 @@ export const LoginForm: React.FC<{}> = () => {
   return (
     <FormWrapper onSubmit={handleSubmit}>
       <InputWithTooltip>
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" aria-labelledby="non-existent-label">
+          Email
+        </Label>
         <ToolTip id="emailtooltip" aria-description="email tooltip">
           Enter a valid email address
         </ToolTip>
@@ -185,7 +187,7 @@ export const LoginForm: React.FC<{}> = () => {
           />
         </InputWrapper>
       </InputWithTooltip>
-      <SubmitButton type="submit" role="contentinfo">
+      <SubmitButton type="submit" role="contentinfo" aria-hidden="true">
         Login
       </SubmitButton>
       <ErrorMessage visible={true} id="login-status" aria-label="login-status">
