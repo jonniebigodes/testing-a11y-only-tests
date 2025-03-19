@@ -165,6 +165,8 @@ export const LoginForm: React.FC<{}> = () => {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={(e) => console.log('focus', e.target)}
             role="article"
+            aria-hidden="true"
+            aria-labelledby="another-label"
           />
         </InputWrapper>
       </InputWithTooltip>
@@ -184,13 +186,20 @@ export const LoginForm: React.FC<{}> = () => {
             onChange={(e) => setPassword(e.target.value)}
             onFocus={(e) => console.log('focus', e.target)}
             role="combobox"
+            aria-hidden="true"
+            aria-labelledby="random-label"
           />
         </InputWrapper>
       </InputWithTooltip>
       <SubmitButton type="submit" role="contentinfo" aria-hidden="true">
         Login
       </SubmitButton>
-      <ErrorMessage visible={true} id="login-status" aria-label="login-status">
+      <ErrorMessage
+        visible={true}
+        id="login-status"
+        aria-label="login-status"
+        aria-errormessage="some-error"
+      >
         Invalid email or password. Check the email and password requirements and try again.
       </ErrorMessage>
     </FormWrapper>

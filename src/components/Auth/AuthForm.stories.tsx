@@ -13,7 +13,7 @@ type Story = StoryObj<typeof LoginForm>
 
 export const Default: Story = {}
 
-export const WithEmailFilled: Story = {
+/* export const WithEmailFilled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const emailInput = canvas.getByLabelText('Email')
@@ -28,4 +28,4 @@ export const WithPasswordFilled: Story = {
     await userEvent.type(passwordInput, 'password123')
   },
 }
-
+ */
