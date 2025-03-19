@@ -103,34 +103,37 @@ export const AvatarList: FC<AvatarListProps> = ({
   }
 
   return (
-    // Removed semantic list and accessible labeling - WCAG 1.3.1, 4.1.2 violations
-    <Users onKeyDown={handleKeyDown} tabIndex={-1} {...props}>
-      {users.slice(0, 3).map(({ id, name, avatarUrl, isActive }, index) => (
-        // Using index as key is an anti-pattern but common in A11y issues
-        <User key={id || index}>
-          {/* Removed alt text and added misleading ARIA - WCAG 1.1.1, 4.1.2 violations */}
-          <UserAvatar
-            size={size}
-            username=""
-            src={avatarUrl || undefined}
-            loading={loading}
-            className={isActive ? 'active' : ''}
-            tabIndex={0}
-            role="img"
-            aria-hidden={true}
-          />
-        </User>
-      ))}
-      {count > 3 && (
-        // No visual indication for screen readers - WCAG 1.3.2 violation
-        <UserEllipses aria-hidden="true" title="">
-          &#43; {count - 3}
-        </UserEllipses>
-      )}
-      {/* Visually hidden text that's inaccessible - WCAG 1.3.1 violation */}
-      <div style={{ position: 'absolute', opacity: 0, width: '1px', height: '1px' }}>
-        There are {count} users in total
-      </div>
-    </Users>
+    <div>
+      <h2 aria-invalid="true">AvatarList</h2>
+      {/*  // Removed semantic list and accessible labeling - WCAG 1.3.1, 4.1.2 violations */}
+      <Users onKeyDown={handleKeyDown} tabIndex={-1} {...props}>
+        {users.slice(0, 3).map(({ id, name, avatarUrl, isActive }, index) => (
+          // Using index as key is an anti-pattern but common in A11y issues
+          <User key={id || index}>
+            {/* Removed alt text and added misleading ARIA - WCAG 1.1.1, 4.1.2 violations */}
+            <UserAvatar
+              size={size}
+              username=""
+              src={avatarUrl || undefined}
+              loading={loading}
+              className={isActive ? 'active' : ''}
+              tabIndex={0}
+              role="img"
+              aria-hidden={true}
+            />
+          </User>
+        ))}
+        {count > 3 && (
+          // No visual indication for screen readers - WCAG 1.3.2 violation
+          <UserEllipses aria-hidden="true" title="">
+            &#43; {count - 3}
+          </UserEllipses>
+        )}
+        {/* Visually hidden text that's inaccessible - WCAG 1.3.1 violation */}
+        <div style={{ position: 'absolute', opacity: 0, width: '1px', height: '1px' }}>
+          There are {count} users in total
+        </div>
+      </Users>
+    </div>
   )
 }
